@@ -1,2 +1,2 @@
-# Hangman-v1-2022
-Another fun project made in Python!
+#Hangman Project
+Download both of these files here and run the one titled "Hangman"
