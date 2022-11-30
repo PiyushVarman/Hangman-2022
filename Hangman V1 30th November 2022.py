@@ -18,7 +18,7 @@ def chkpt():
 chkpt()  #Checkpoint(abbreviation)
 
 play=[] #All the letters that the player has chosen
-life=3 #Number of lives
+life=5 #Number of lives
 st=0  #This will check for the modifications made
 while life>0:
     yolo=''
