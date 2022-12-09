@@ -37,7 +37,7 @@ while life>0:
             if life==0:
                 print("\nYou lost the game! The word was '",word,"'.",sep='')
                 break
-        print("The letters you have used are:",play)
+        print("The letters you have used are:",sorted(play))
         st=0 #Resetting the modifcation counter.
 
         if yolo==word:
