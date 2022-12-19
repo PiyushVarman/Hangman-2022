@@ -1,8 +1,14 @@
+print('''Welcome to the Hangman Game!
+You have 5 lives to start this game. 
+I will give you a word but hide all the letters of it.
+You must enter a single letter at a time.
+Do you think you have it in you to beat me? Let's go!\n''')
 import random
 from words import words
 word=random.choice(words) #word picker
 chk=[]  #What the player must see without typing in anything
-yolo=''
+p=''
+print("This is a",len(word),"letter word.")
 for i in range(len(word)):
     if word[i]=='-':
         chk.append('-')
@@ -10,9 +16,9 @@ for i in range(len(word)):
         chk.append('_')
 
 def chkpt():
-    global yolo 
+    global p 
     for i in range(len(chk)):
-        yolo+=chk[i]
+        p+=chk[i]
         print(chk[i],end='')
     print()
 chkpt()  #Checkpoint(abbreviation)
@@ -21,9 +27,10 @@ play=[] #All the letters that the player has chosen
 life=5 #Number of lives
 st=0  #This will check for the modifications made
 while life>0:
-    yolo=''
-    a=input("\nEnter a single letter for this "+str(len(word))+" letter word.").lower()
-    if len(a)==1:
+    p=''
+    a=input("\nEnter a single letter for this word.").lower()
+    a=a.strip()
+    if len(a)==1 and a not in play:
         play.append(a)
         
         for i in range(len(word)):
@@ -40,11 +47,10 @@ while life>0:
         print("The letters you have used are:",sorted(play))
         st=0 #Resetting the modifcation counter.
 
-        if yolo==word:
-            print("\nYou WIN!!")
+        if p==word:
+            print("\nThat's Right, the word was, indeed",p,"!\nYou WIN!!")
             break
-    else:
+    elif len(a)!=1:
         print("You can only enter a single letter at a time! Try again.!")
-        
-        
-    
+    elif a in play:
+        print("You have already used the letter",a,"!\nTry Again!")
